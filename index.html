@@ -10,7 +10,23 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #f0f0f0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        :root {
+            --background-color: #f0f0f0;
+            --text-color: #333;
+            --button-background: #007BFF;
+            --button-hover-background: #0056b3;
+        }
+
+        [data-theme="dark"] {
+            --background-color: #333;
+            --text-color: #f0f0f0;
+            --button-background: #444;
+            --button-hover-background: #222;
         }
 
         .header, .about-me, .tech-stack, .connect, .github-stats, .github-trophies, .quote, .portfolio {
@@ -19,6 +35,9 @@
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .header img, .about-me img, .github-stats img, .github-trophies img {
@@ -27,16 +46,27 @@
         }
 
         .header h1, .about-me h3, .connect h4, .tech-stack h4, .portfolio h3 {
-            color: #333;
+            color: var(--text-color);
         }
 
         .social-icons img {
             margin: 5px;
             height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
         }
 
         .tech-stack .badge {
             margin: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .tech-stack .badge:hover {
+            transform: translateY(-5px);
+            background-color: #e0e0e0;
         }
 
         .container {
@@ -52,21 +82,60 @@
                 justify-content: center;
             }
         }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: var(--button-background);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: var(--button-hover-background);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .theme-toggle-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: var(--button-background);
+            color: #fff;
+        }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <img src="https://github.com/Divyanshu-RS/Divyanshu-RS/blob/main/Divyanshu%20Banner%20For%20Github.gif" alt="Banner">
-    <p><img src="https://user-images.githubusercontent.com/74038190/226190894-18e959ba-d458-4a94-ac44-790190f2a947.gif" width="250"/></p>
+    <img src="https://github.com/Divyanshu-RS/Divyanshu-RS/blob/main/Divyanshu%20Banner%20For%20Github.gif" alt="Banner" class="fade-in">
+    <p><img src="https://user-images.githubusercontent.com/74038190/226190894-18e959ba-d458-4a94-ac44-790190f2a947.gif" width="250" class="fade-in"/></p>
     <h1> Hi <img src="https://raw.githubusercontent.com/nixin72/nixin72/master/wave.gif" alt="Waving hand animated gif" height="45" width="45" />, I'm Divyanshu Ranjan Singh</h1>
 </div>
 
-<div class="about-me">
+<div class="about-me fade-in">
     <h3>A passionate professional who continuously finds fulfillment in utilizing cutting-edge technology to create excellent, scalable solutions that have an influence. As a software and product developer, I invest a lot of time and energy into conceptually creating and testing products early in the process. I have strong problem-solving skills and can build software in a test-driven environment.</h3>
 </div>
 
-<div class="connect">
+<div class="connect fade-in">
     <h4>Below are the details to reach me out on Social Platforms!</h4>
     <div class="social-icons">
         <a href="https://www.linkedin.com/in/divyanshu-ranjan-singh/"><img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"></a>
@@ -80,59 +149,74 @@
 </div>
 
 <div class="container">
-    <div class="about-me">
+    <div class="about-me fade-in">
         <h5>🔭 I'm a Front-End Web Developer, crafting uniquely awesome online experiences..<br>💻 Skilled at Front-End Web Development and currently learning Data Analysis.<br>🌱 I enjoy learning new technologies.<br>📫 You can reach me at: divyanshuranjan.9999@gmail.com</h5>
         <p><img src="https://media.giphy.com/media/dWesBcTLavkZuG35MI/giphy.gif" width="600" height="300" alt="Coding Gif"/></p>
     </div>
 </div>
 
-<div class="tech-stack">
+<div class="tech-stack fade-in">
     <h4>💻 Tech Stack:</h4>
     <div class="badges">
-        <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-        <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-        <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" alt="Java">
-        <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
-        <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
-        <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-        <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
-        <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" alt="C">
-        <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#">
-        <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
-        <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
-        <img src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="Amazon AWS">
-        <img src="https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white" alt="Microsoft Excel">
-        <img src="https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white" alt="Microsoft PowerPoint">
-        <img src="https://img.shields.io/badge/Microsoft_Office-D83B01?style=for-the-badge&logo=microsoft-office&logoColor=white" alt="Microsoft Office">
-        <img src="https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=Tableau&logoColor=white" alt="Tableau">
-        <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
-        <img src="https://img.shields.io/badge/Adobe_Illustrator-FF9A00?style=for-the-badge&logo=adobe-illustrator&logoColor=white" alt="Adobe Illustrator">
-        <img src="https://img.shields.io/badge/Adobe_XD-470137?style=for-the-badge&logo=Adobe-XD&logoColor=#FF61F6" alt="Adobe XD">
+        <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" class="badge">
+        <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" class="badge">
+        <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" alt="Java" class="badge">
+        <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" class="badge">
+        <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" class="badge">
+        <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" class="badge">
+        <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" class="badge">
+        <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" class="badge">
+        <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js" class="badge">
+        <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" class="badge">
+        <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native" class="badge">
+        <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" class="badge">
+        <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase" class="badge">
+        <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="Git" class="badge">
+        <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" class="badge">
+        <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="Visual Studio Code" class="badge">
+        <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" class="badge">
+        <img src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="Amazon AWS" class="badge">
+        <img src="https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white" alt="Microsoft Azure" class="badge">
+        <img src="https://img.shields.io/badge/Microsoft_Office-D83B01?style=for-the-badge&logo=microsoft-office&logoColor=white" alt="Microsoft Office" class="badge">
+        <img src="https://img.shields.io/badge/Adobe_XD-470137?style=for-the-badge&logo=Adobe-XD&logoColor=#FF61F6" alt="Adobe XD" class="badge">
     </div>
 </div>
 
-<div class="github-stats">
-    <h4>🔥 My GitHub Stats:</h4>
-    <p><img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Divyanshu-RS&theme=transparent" alt="GitHub Profile Summary Card"></p>
-    <p><img src="https://github-readme-streak-stats.herokuapp.com/?user=Divyanshu-RS&theme=black-ice&hide_border=true&stroke=0000&background=060A0CD0" alt="GitHub Streak Stats"></p>
-    <p><img src="https://github-readme-stats.vercel.app/api?username=Divyanshu-RS&theme=dark&hide_border=false&include_all_commits=false&count_private=false" alt="GitHub Stats"></p>
-    <p><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Divyanshu-RS&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact" alt="Top Languages"></p>
+<div class="github-stats fade-in">
+    <h4>🔥 My GitHub Stats</h4>
+    <img src="https://github-readme-stats.vercel.app/api?username=Divyanshu-RS&show_icons=true&theme=radical" alt="GitHub Stats">
 </div>
 
-<div class="github-trophies">
-    <h4>🏆 GitHub Trophies:</h4>
-    <p><img src="https://github-profile-trophy.vercel.app/?username=Divyanshu-RS&theme=gitdimmed&no-frame=false&no-bg=false&margin-w=4" alt="GitHub Trophies"></p>
+<div class="github-trophies fade-in">
+    <h4>🏆 GitHub Trophies</h4>
+    <img src="https://github-profile-trophy.vercel.app/?username=Divyanshu-RS&theme=radical" alt="GitHub Trophies">
 </div>
 
-<div class="quote">
-    <h4>📊 GitHub Quote:</h4>
-    <p><img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="GitHub Quote"></p>
+<div class="quote fade-in">
+    <h3>"Strive for progress, not perfection."</h3>
 </div>
 
-<div class="portfolio">
-    <h3>👨‍💻 My Portfolio:</h3>
-    <p><a href="https://www.linkedin.com/in/divyanshu-ranjan-singh/">View Portfolio</a></p>
+<div class="portfolio fade-in">
+    <h3>📂 Portfolio</h3>
+    <p>Check out some of my projects!</p>
+    <a href="https://github.com/Divyanshu-RS?tab=repositories" class="button">View GitHub</a>
+    <a href="https://divyanshu-rs.github.io/" class="button">Visit My Website</a>
 </div>
 
+<button class="theme-toggle-button" onclick="toggleTheme()">Toggle Dark/Light Theme</button>
+
+<script>
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    });
+</script>
 </body>
 </html>
